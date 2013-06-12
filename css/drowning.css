@@ -1,0 +1,120 @@
+body{
+    font-family:'Helvetica';
+    font-size:13px;
+    color:#000;
+}
+
+h1{
+    font-size: 3.55em;
+    color: #62CCF1;
+    line-height: 15px;
+    font-weight:400;
+    text-align:center;
+}
+
+.total{
+    font-size: 28px;
+    font-weight: 200;
+}
+
+.one{
+    font-size: 23px;
+    font-weight: 200;
+}
+
+/*#header{
+    padding-left:4px;
+}*/
+
+.container{
+    float: left;
+    width:600px;
+    
+}
+
+.red{
+    color: #c72e2e;
+    font-size: 36px;
+    font-weight:400;  
+}
+
+.redSmall{
+    color: #c72e2e;
+    font-size: 27px;
+    font-weight:300;  
+}
+
+.headText{
+    margin-left:20px;
+    margin-bottom:15px;
+}
+
+#navlist li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
+
+.people{
+    background-image: url("../img/rwPeople.png");
+    width:400px;
+    height:130px;
+    position:absolute;
+    z-index:10;
+    margin-left:90px;
+}
+
+
+
+#pool {
+    background: rgba( 0, 0, 0, 0.10);
+    
+    width: 590px;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #ccc;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding-left: 6px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+#poolInside {
+    background: rgba( 255, 255, 255, 0.50);
+    border: 1px solid #bbb;
+    border-top: 1px solid #eee;  
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    width: 580px;
+    height: 150px;
+    position: relative;
+    display:block;
+}
+#water {
+    background-image: url("../img/waves2.png");   
+    background-position: top right;
+    position: absolute;
+    z-index:11;
+    bottom: 0px;
+    width: 580px;
+    height: 30px;
+    -webkit-transition: all 3s ease-out;
+    -moz-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+#poolInside:hover #water {
+    height: 120px;
+    background-position: top left;
+    -webkit-transition: all 3s ease-out;
+    -moz-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+}
