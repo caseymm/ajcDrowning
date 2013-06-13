@@ -6,22 +6,41 @@
 <title>Adolescent Drowning</title>
 
     <link rel="stylesheet" href="css/drowning.css">
+        <link rel="stylesheet" href="css/animate.css">
 
     <script src="js/libs/modernizr-2.0.6.min.js"></script>
+<link href="barChart/novus/src/nv.d3.css" rel="stylesheet" type="text/css">
+
+
+
+<script src="barChart/novus/lib/d3.v2.js"></script>
+<script src="barChart/novus/nv.d3.js"></script>
+<!-- including all the components so I don't have to minify every time I test in development -->
+<script src="barChart/novus/src/tooltip.js"></script>
+<script src="barChart/novus/src/utils.js"></script>
+<script src="barChart/novus/src/models/axis.js"></script>
+<script src="barChart/novus/src/models/discreteBar.js"></script>
+<script src="barChart/novus/src/models/discreteBarChart.js"></script>
+<script src="barChart/novus/src/models/multiBarHorizontal.js"></script>
+<script src="barChart/novus/src/models/multiBarHorizontalChart.js"></script>
+
+    
 </head>
 <body>
 <div class="container">
 
-    <div id="header">
+
+        <div id="pool" class="sections animated flipInX">
+            
+            <div class="headBox">
     <h1>ADOLESCENT DROWNING</h1>
     </div>
-    
-    <div class="headText">
-    <div class="total">In 2010, <span class="red">3782</span> people died from drowning.</div>
-    <div class="one"><span class="redSmall">One</span> in <span class="redSmall">five</span> people who drown is age 14 or younger.</div>
-    </div>
-    
-        <div id="pool">
+            
+            <div class="headText">
+            <div class="total">In 2010, <span class="red">3782</span> people died from drowning.</div>
+            <div class="one"><span class="redSmall">One</span> in <span class="redSmall">five</span> people who drown is age 14 or younger.</div>
+            </div>
+            
         <div id="poolInside">
     
             <div id="water"></div>
@@ -30,7 +49,197 @@
 
         </div>
         </div>
+        <!--<hr />-->
+
+       
+        
+ <div id="fourteen" class="sections animated delay flipInX">
+    <div class="blocks"> 
+  <div class="left">
+        <div id="chart2">
+            <svg></svg>
+        </div>
+  </div>
+  
+  <div class="fillerRight">
+        <div class="ageBox">
+            <div class="label">Ages 1 - 14</div>
+        </div>
+        <div class="textBox">For those ages 14 and younger, drowning remains the
+            second-leading cause of <b>unintentional injury-related death</b> behind
+            motor vehicle crashes and took <span class="redSmallest">687</span> lives in 2010.</div>
+  </div>
+  
+ </div>
+ 
+ </div>
+ 
+ 
+ 
+    <!--<hr />-->
+
+   
+    
+<div id="four" class="sections animated delay2 flipInX">
+    <div class="blocks2">
+        
+        <div class="full">
+        
+        <div class="fourLeft">
+            <div class="ageBox">
+                <div class="label">Ages 1 - 4</div>
+            </div>
+        </div>
+        <div class="fourRight">
+            <div class="textBox2">For children ages 1 to 4, drowning is the second-leading
+            cause of death and took <span class="redSmallest">436</span> lives in 2010.</div>
+        </div>
+        
+        
+    
+            <div id="chart1">
+                <svg></svg>
+            </div>
+        </div>
+  
+    </div>
 
 </div>
+
+<div class="padTop"></div>
+
+<script>
+
+BarChart = [ 
+  {
+    key: "Cumulative Return",
+    values: [
+      { 
+        "label" : "Congenital Anomolies" ,
+        "value" : 507,
+        "color" : "#62CCF1"
+      } , 
+      { 
+        "label" : "Drowning" , 
+        "value" : 436,
+        "color" : "#c72e2e"
+      } ,
+      { 
+        "label" : "Malignant Neoplasm" ,
+        "value" : 346,
+        "color" : "#62CCF1"
+      } ,
+      { 
+        "label" : "Motor Vehicle" ,
+        "value" : 343,
+        "color" : "#62CCF1"
+      } 
+    ]
+  }
+];
+
+
+
+
+nv.addGraph(function() {  
+  var chart = nv.models.discreteBarChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .staggerLabels(false)
+      //.staggerLabels(historicalBarChart[0].values.length > 8)
+      .tooltips(true)
+      .showValues(true)
+
+  d3.select('#chart1 svg')
+      .datum(BarChart)
+    .transition().duration(500)
+      .call(chart);
+
+  nv.utils.windowResize(chart.update);
+
+  return chart;
+});
+
+
+</script>
+
+<script>
+
+
+
+long_short_data = [ 
+  {
+    
+    key: '',
+    color: '#2ca02c',
+    values: [
+      { 
+        "label" : "Motor Vehicle" ,
+        "value" : .3783,
+        "color" : "#757575"
+      } , 
+      { 
+        "label" : "Drowning" ,
+        "value" : .2262,
+        "color" : "#c72e2e"
+      } , 
+      { 
+        "label" : "Fire/Burn" ,
+        "value" : .0942,
+        "color" : "#757575"
+      } , 
+      { 
+        "label" : "Suffocation" ,
+        "value" : .0701,
+        "color" : "#757575"
+      } , 
+      {
+        "label" : "Pedestrian" ,
+        "value" : .0448,
+        "color" : "#757575"
+      } 
+    ]
+  }
+];
+
+
+
+
+
+
+
+var chart2;
+nv.addGraph(function() {
+  chart2 = nv.models.multiBarHorizontalChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .margin({top: 1, right: 1, bottom: 20, left: 85})
+      .showValues(true)
+      .tooltips(false)
+      .barColor(d3.scale.category20().range())
+      //.showControls(true);
+
+  chart2.yAxis
+      .tickFormat(d3.format(''));
+
+  d3.select('#chart2 svg')
+      .datum(long_short_data)
+    .transition().duration(500)
+      .call(chart2);
+
+  nv.utils.windowResize(chart2.update);
+
+  //chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
+
+  return chart2;
+});
+
+
+
+</script>
+
+    
+        
+
 </body>
 </html>
