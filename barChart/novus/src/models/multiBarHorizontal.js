@@ -21,7 +21,8 @@ nv.models.multiBarHorizontal = function() {
     , stacked = false
     , showValues = true
     , valuePadding = 60 //if want to put inside
-    , valueFormat = d3.format("00.00%") //get to show decimals
+    , valueFormat = d3.format("%") //get to show decimals
+    , zero = ("04d")
     , delay = 1200
     , xDomain
     , yDomain

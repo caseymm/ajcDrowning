@@ -9,14 +9,20 @@ h1{
     font-size: 44px;
     color: #fff;
     font-weight:300;
-    text-align:center;
-    position:absolute;
-    top:-12px;
-    left:25px;
 }
 
 b{
     font-weight:600;
+}
+
+a{
+    color:#62CCF1;
+    text-decoration: none;
+}
+
+.info{
+    font-size: 11px;
+    margin-left: 10px;
 }
 
 .total{
@@ -100,16 +106,16 @@ padding-right: 20px;
 
 .blocks{
     width:100%;
-    height:206px;
+    height:249px;
 }
 
 .blocks2{
     width:100%;
-    height:293px;
+    height:310px;
 }
 
 .padTop{
-    margin-top:20px;
+    margin-top:10px;
     width:100%;
 }
 
@@ -129,7 +135,7 @@ padding-right: 20px;
 .fillerRight{
     float:right;
     width:48%;
-    height:200px;
+    height:245px;
     background: rgba( 255, 255, 255, 0.50);
     display:inline-block;
     border: 1px solid #bbb;  
@@ -182,7 +188,16 @@ padding-right: 20px;
     
 }
 
-.ageBox{
+.title{
+    text-align: center;
+    padding-left: 0px;
+    padding-top:0px;
+    font-size:44px;
+    color: #fff;
+    font-weight:300;
+}
+
+.ageBox1, .ageBox2{
     text-align:center;
     margin-left:10%;
     margin-top: 15px;
@@ -200,15 +215,29 @@ padding-right: 20px;
     
 }
 
+.chartTitle{
+    text-align:left;
+    font-size: 16px;
+    font-weight:500;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top: 15px;
+    line-height:20px;
+}
+
+#match{
+    margin-top: 22px;
+}
+
 .textBox{
     text-align:left;
     margin-left:12%;
-    margin-top: 15px;
+    margin-top: 23px;
     width:80%;
     height:150px;
     display:inline-block;
     margin-bottom:7px;
-    line-height:18px;
+    line-height:21px;
 }
 
 .textBox2{
@@ -219,7 +248,7 @@ padding-right: 20px;
     height:150px;
     display:inline-block;
     margin-bottom:7px;
-    line-height:18px;
+    line-height:21px;
 }
 
 .full{
@@ -272,22 +301,23 @@ padding-right: 20px;
     z-index:11;
     bottom: 0px;
     width: 580px;
-    height: 30px;
-    -webkit-transition: all 3s ease-out;
+    height: 35px;
+    /*-webkit-transition: all 3s ease-out;
     -moz-transition: all 3s ease-out;
-    -o-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;*/
     transition: all 3s ease-out;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
 #poolInside:hover #water {
-    height: 120px;
+    height: 35px;
     background-position: top left;
-    -webkit-transition: all 3s ease-out;
+    animation-direction:right;
+    /*-webkit-transition: all 3s ease-out;
     -moz-transition: all 3s ease-out;
     -o-transition: all 3s ease-out;
-    transition: all 3s ease-out;
+    transition: all 3s ease-out;*/
 }
 
 .sections{
@@ -341,6 +371,7 @@ text {
   min-height: 100px;
   height: 200px;
   margin-left:10px;
+  margin-top:-18px;
 /*
   Minimum height and width is a good idea to prevent negative SVG dimensions...
   For example width should be =< margin.left + margin.right + 1,

@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="css/drowning.css">
         <link rel="stylesheet" href="css/animate.css">
 
-    <script src="js/libs/modernizr-2.0.6.min.js"></script>
+    
 <link href="barChart/novus/src/nv.d3.css" rel="stylesheet" type="text/css">
 
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 <script src="barChart/novus/lib/d3.v2.js"></script>
 <script src="barChart/novus/nv.d3.js"></script>
@@ -30,14 +31,15 @@
 <div class="container">
 
 
-        <div id="pool" class="sections animated flipInX">
+
+        <div id="pool" class="sections animated delay2 bounceInDown">
             
             <div class="headBox">
-    <h1>ADOLESCENT DROWNING</h1>
-    </div>
+                <div class="title">ADOLESCENT DROWNING</div>
+            </div>
             
             <div class="headText">
-            <div class="total">In 2010, <span class="red">3782</span> people died from drowning.</div>
+            <div class="total">In 2010, <span class="red">3,782</span> people died from drowning.</div>
             <div class="one"><span class="redSmall">One</span> in <span class="redSmall">five</span> people who drown is age 14 or younger.</div>
             </div>
             
@@ -51,18 +53,18 @@
         </div>
         <!--<hr />-->
 
-       
         
- <div id="fourteen" class="sections animated delay flipInX">
+ <div id="fourteen" class="sections animated delay bounceInDown">
     <div class="blocks"> 
   <div class="left">
+        <div id="match" class="chartTitle">Leading Causes of Unintentional Injury-Related Death for Ages 1-14</div>
         <div id="chart2">
             <svg></svg>
         </div>
   </div>
   
   <div class="fillerRight">
-        <div class="ageBox">
+        <div class="ageBox1">
             <div class="label">Ages 1 - 14</div>
         </div>
         <div class="textBox">For those ages 14 and younger, drowning remains the
@@ -80,13 +82,14 @@
 
    
     
-<div id="four" class="sections animated delay2 flipInX">
+<!--<div id="four" class="sections animated bounceInDown">-->
+<div id="four" class="sections">
     <div class="blocks2">
         
         <div class="full">
         
         <div class="fourLeft">
-            <div class="ageBox">
+            <div class="ageBox2">
                 <div class="label">Ages 1 - 4</div>
             </div>
         </div>
@@ -95,7 +98,7 @@
             cause of death and took <span class="redSmallest">436</span> lives in 2010.</div>
         </div>
         
-        
+        <div class="chartTitle">Leading Causes of Death for Ages 1-4</div>
     
             <div id="chart1">
                 <svg></svg>
@@ -107,6 +110,12 @@
 </div>
 
 <div class="padTop"></div>
+
+<div class="info">*Information gathered from the <a href="http://www.cdc.gov">CDC</a> and relevant up to 2010.
+For more information on unintentional drowning, <a href="http://www.cdc.gov/homeandrecreationalsafety/water-safety/waterinjuries-factsheet.html" target="blank">
+click here.</a></div>
+
+<!-- ends graphic -->
 
 <script>
 
@@ -152,7 +161,7 @@ nv.addGraph(function() {
 
   d3.select('#chart1 svg')
       .datum(BarChart)
-    .transition().duration(500)
+    .transition().duration(3000)
       .call(chart);
 
   nv.utils.windowResize(chart.update);
@@ -163,6 +172,8 @@ nv.addGraph(function() {
 
 </script>
 
+
+<!-- chart2 horizontal -->
 <script>
 
 
@@ -175,27 +186,27 @@ long_short_data = [
     values: [
       { 
         "label" : "Motor Vehicle" ,
-        "value" : .3783,
+        "value" : 0.3783,
         "color" : "#757575"
       } , 
       { 
         "label" : "Drowning" ,
-        "value" : .2262,
+        "value" : 0.2262,
         "color" : "#c72e2e"
       } , 
       { 
         "label" : "Fire/Burn" ,
-        "value" : .0942,
+        "value" : 0.0942,
         "color" : "#757575"
       } , 
       { 
         "label" : "Suffocation" ,
-        "value" : .0701,
+        "value" : 0.0701,
         "color" : "#757575"
       } , 
       {
         "label" : "Pedestrian" ,
-        "value" : .0448,
+        "value" : 0.0448,
         "color" : "#757575"
       } 
     ]
@@ -213,7 +224,7 @@ nv.addGraph(function() {
   chart2 = nv.models.multiBarHorizontalChart()
       .x(function(d) { return d.label })
       .y(function(d) { return d.value })
-      .margin({top: 1, right: 1, bottom: 20, left: 85})
+      .margin({top: 1, right: 1, bottom: 11, left: 85})
       .showValues(true)
       .tooltips(false)
       .barColor(d3.scale.category20().range())
@@ -224,7 +235,7 @@ nv.addGraph(function() {
 
   d3.select('#chart2 svg')
       .datum(long_short_data)
-    .transition().duration(500)
+    .transition().duration(3000)
       .call(chart2);
 
   nv.utils.windowResize(chart2.update);
@@ -234,9 +245,29 @@ nv.addGraph(function() {
   return chart2;
 });
 
-
-
 </script>
+
+<!-- animations for boxes -->
+            <script>
+                $('#pool').hover(function() {
+                        $('.headBox').addClass("animated pulse");
+                }, function() {
+                        $('.headBox').removeClass("animated pulse");
+                });
+                
+                $('.blocks').hover(function() {
+                        $('.ageBox1').addClass("animated pulse");
+                }, function() {
+                        $('.ageBox1').removeClass("animated pulse");
+                });
+                
+                $('.blocks2').hover(function() {
+                        $('.ageBox2').addClass("animated pulse");
+                }, function() {
+                        $('.ageBox2').removeClass("animated pulse");
+                });
+            </script>
+       
 
     
         

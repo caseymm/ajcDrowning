@@ -2463,7 +2463,7 @@ nv.models.discreteBar = function() {
     , forceY = [0] // 0 is forced by default.. this makes sense for the majority of bar graphs... user can always do chart.forceY([]) to remove
     , color = nv.utils.defaultColor()
     , showValues = false
-    , valueFormat = d3.format(',.2f')
+    , valueFormat = d3.format('p')
     , xDomain
     , yDomain
     , dispatch = d3.dispatch('chartClick', 'elementClick', 'elementDblClick', 'elementMouseover', 'elementMouseout')
@@ -2808,7 +2808,7 @@ nv.models.discreteBarChart = function() {
     ;
   yAxis
     .orient('left')
-    .tickFormat(d3.format(',.1f'))
+    .tickFormat(d3.format(',.2f'))
     ;
 
   //============================================================
@@ -7010,7 +7010,7 @@ nv.models.multiBarHorizontal = function() {
     , stacked = false
     , showValues = false
     , valuePadding = 60
-    , valueFormat = d3.format(',.2f')
+    , valueFormat = d3.format('p')
     , delay = 1200
     , xDomain
     , yDomain
@@ -8668,7 +8668,7 @@ nv.models.pie = function() {
     , getDescription = function(d) { return d.description }
     , id = Math.floor(Math.random() * 10000) //Create semi-unique ID in case user doesn't select one
     , color = nv.utils.defaultColor()
-    , valueFormat = d3.format(',.2f')
+    , valueFormat = d3.format('p')
     , showLabels = true
     , pieLabelsOutside = true
     , donutLabelsOutside = false
